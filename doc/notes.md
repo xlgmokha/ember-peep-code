@@ -41,23 +41,34 @@ Memorize this.
 Router
 * this.resource("tables")
 * App.TablesRoute
+* this.resource("table")
+* App.TableRoute
 
 Controller
 * App.TablesController
+* App.TableController
 
 Model
 * App.Table
 
 View
 * App.TablesView
+* App.TableView
 
 Template
 * tables
+* table
 
 ## Controllers
 
 Deliver model data to views and templates.
 Array and Object controllers manage a model property. They proxy to model attributes and methods.
+
+* Controller proxies methods to itself.
+* ObjectController proxies methods to it's 'model'. {{ name }}
+* ArrayController proxies methods to each of it's models.
+
+Controllers are long lived. (singletons)
 
 ## Partial Template
 
@@ -66,4 +77,7 @@ Array and Object controllers manage a model property. They proxy to model attrib
 <script type="text/x-handlebars" data-template-name="_tableMenu">
   <h1>hi</h1>
 </script>
+
+## model
+
 

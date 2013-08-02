@@ -36,14 +36,58 @@
       <div id="tables" class="four columns">
         {{ partial "tableMenu" }}
       </div>
+      <div id="order" class="eight columns">
+        {{ outlet }}
+      </div>
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="_tableMenu">
     <h2>Tables</h2>
+    {{controller}}
     {{#each table in controller}}
-        {{#linkTo "table" table class="panel six columns"}}{{ table.id }}{{/linkTo}}
+      {{#linkTo "table" table class="panel six columns"}}{{ table.id }}{{/linkTo}}
     {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="table">
+    <div class="row">
+      <div class="three columns">
+        {{ render "food" }}
+      </div>
+      <div class="nine columns">
+        <h2>Table <span>{{id}}</span></h2>
+        {{ render "tab" tab }}
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="tab">
+    <ul id="customer-tab">
+    {{#each tabItem in tabItems}}
+      <li><h3>{{ tabItem.food.name }} <span>${{ money tabItem.cents }}</span></h3></li>
+    {{else}}
+      <li><h3>Click a food to add it</h3></li>
+    {{/each}}
+    <li id="total"><h3>Total <span>$ {{ money cents }}</span></h3></li>
+    </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="food">
+    <ul id="menu">
+    {{#each food in controller}}
+      <li>
+      <a href="#" {{ action "addFood" food }}>
+        <img {{ bindAttr src="imageUrl" }}>
+        <p>{{ food.name }}</p>
+      </a>
+      </li>
+    {{/each}}
+    </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="tables/index">
+    <h2>Please select a table</h2>
   </script>
 
 <script src="js/libs/jquery-1.8.3.min.js"></script>
