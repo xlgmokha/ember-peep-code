@@ -1,4 +1,4 @@
-ember.js
+ember.js - notes from ember.js episode on peepcode.
 
 Thick client framework for the browser.
 
