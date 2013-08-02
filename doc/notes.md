@@ -24,3 +24,46 @@ way.
 * js
 * favicon.ico
 * js
+
+## router
+
+runs code when URLs are visited.
+loads data and assigns it to a controller.
+e.g. /tables -> App.TablesRoute (find list of tables and assign to) -> App.TablesController.
+
+Most dev time spent in route objects. route objects load data.
+
+
+## naming conventions
+
+Memorize this.
+
+Router
+* this.resource("tables")
+* App.TablesRoute
+
+Controller
+* App.TablesController
+
+Model
+* App.Table
+
+View
+* App.TablesView
+
+Template
+* tables
+
+## Controllers
+
+Deliver model data to views and templates.
+Array and Object controllers manage a model property. They proxy to model attributes and methods.
+
+## Partial Template
+
+{{ partial "tableMenu" }}
+
+<script type="text/x-handlebars" data-template-name="_tableMenu">
+  <h1>hi</h1>
+</script>
+
